@@ -1,0 +1,59 @@
+//Insertion Sort
+/*NITISH KUMAR
+20016570016
+BSc(H) Computer Science
+*/
+#include<iostream>
+using namespace std;
+#include<conio.h>
+
+void display(int *a, int size) {
+    cout<<"{ ";
+    for(int i=0; i<size; i++ )
+	cout<<a[i]<<' ';
+    cout<<"}"<<endl;
+}
+
+int insertionSort(int *a, int n)
+{
+  int i, j, k, comperision = 0;
+  for(i=1; i<n; i++)
+  {
+    comperision++;
+    k = a[i];
+    for(j=i-1; (a[j]>k) && (j>=0); j--)
+    {
+        comperision += 2;
+        a[j+1] = a[j];
+    }
+    a[j+1] = k;
+  }
+  return comperision;
+}
+
+int main()
+{
+
+ int size, i, *arr;
+
+ cout<<"\nEnter the size of array (max. 10): ";
+ cin>>size;
+ arr = new int[size];
+ cout<<"\nEnter the array: \n";
+ for(i=0; i<size; i++)
+   cin>>arr[i];
+
+ 
+ cout<<"\n Your array: \n";
+ display(arr, size);
+
+ getch();
+ 
+ cout<<"\n\nTotal comperision made: "<<insertionSort(arr, size);
+
+ cout<<"\n Sorted array: ";
+ display(arr, size);
+
+
+ getch();
+}
